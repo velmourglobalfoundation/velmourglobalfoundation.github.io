@@ -1,0 +1,24 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/images/secretariat"
+public_folder: "/assets/images/secretariat"
+
+collections:
+  - name: "secretariat"
+    label: "DIMUN Secretariat"
+    files:
+      - name: "members"
+        label: "Secretariat Members"
+        file: "content/secretariat.json"
+        description: "Add, remove, or reorder Secretariat members. Each one appears as a card on the DIMUN page's Secretariat section."
+        fields:
+          - label: "Members"
+            name: "members"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Role", name: "role", widget: "string", hint: "e.g. Secretary-General, Deputy Secretary-General, Director of Logistics"}
+              - {label: "Photo", name: "photo", widget: "image", required: false}
+              - {label: "Short Bio", name: "bio", widget: "text", required: false}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Admin — Velmour Global Foundation</title>
+<link rel="icon" href="assets/images/logo.jpg">
+<link rel="stylesheet" href="css/style.css">
+<meta name="robots" content="noindex, nofollow">
+<style>
+  table{width:100%;border-collapse:collapse;font-size:13.5px;}
+  th,td{padding:12px 10px;border-bottom:1px solid var(--line-soft);text-align:left;white-space:nowrap;}
+  th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#6a6e78;}
+  .pill{padding:3px 10px;font-size:11px;border-radius:20px;}
+  .pill.paid{background:rgba(47,190,160,.15);color:#0f5b4c;}
+  .pill.unpaid{background:rgba(226,85,78,.12);color:#8a2b26;}
+  .table-wrap{overflow-x:auto;border:1px solid var(--line-soft);}
+  .toolbar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px;}
+</style>
+</head>
+<body>
+
+<header class="site-header scrolled">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <img src="assets/images/logo.jpg" alt="Velmour Global Foundation">
+      <span class="brand-text"><b>Velmour</b><span>Admin</span></span>
+    </a>
+    <nav class="nav-links"><a href="index.html">← Back to Site</a></nav>
+  </div>
+</header>
+
+<section style="padding:140px 0 40px;">
+  <div class="container">
+
+    <!-- LOGIN GATE -->
+    <div id="login-gate" class="form-panel">
+      <span class="eyebrow">Admin Access</span>
+      <h2 style="font-size:24px;margin:14px 0 10px;">Enter Passphrase</h2>
+      <p style="font-size:13px;color:#6a6e78;margin-bottom:24px;">
+        This is a simple client-side lock, not real security — anyone who views this page's source can find the passphrase. It only keeps casual visitors out. Set your own passphrase in <code>js/registration.js</code> (<code>adminPassphrase</code>). For real protection, this page should sit behind actual login / server-side auth — ask if you'd like that built.
+      </p>
+      <div class="field"><input type="password" id="pass-input" placeholder="Passphrase"></div>
+      <button class="btn btn-solid" onclick="tryLogin()">Enter</button>
+      <p id="login-error" style="color:#8a2b26;font-size:13px;margin-top:12px;display:none;">Incorrect passphrase.</p>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dashboard" style="display:none;">
+      <span class="eyebrow">Admin Dashboard</span>
+      <h1 style="font-size:32px;margin:14px 0 30px;">Registrations</h1>
+
+      <div class="toolbar">
+        <button class="btn btn-sm" onclick="exportAllPDF(false)">Download All — PDF</button>
+        <button class="btn btn-sm btn-accent" onclick="exportAllPDF(true)">Download Paid Only — PDF</button>
+        <button class="btn btn-sm" onclick="exportCSV()">Export CSV</button>
+        <button class="btn btn-sm" onclick="filterEvent('all')">All Events</button>
+        <button class="btn btn-sm" onclick="filterEvent('Velmour Global Foundation')">Velmour Global (Interns/Volunteers)</button>
+        <button class="btn btn-sm" onclick="filterEvent('Koshur Summit')">Koshur Summit</button>
+        <button class="btn btn-sm" onclick="filterEvent('DIMUN Conference')">DIMUN</button>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th><th>Event</th><th>Role</th><th>Age</th><th>School</th>
+              <th>Phone</th><th>Email</th><th>Committee</th><th>Qualification</th><th>Heard Via</th><th>Status</th><th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="reg-table-body"></tbody>
+        </table>
+      </div>
+      <p id="empty-state" style="display:none;color:#6a6e78;padding:30px 0;">No registrations yet — they'll appear here as people register on the Events or DIMUN pages of this browser.</p>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="js/registration.js"></script>
+<script>
+let currentFilter = 'all';
+
+function tryLogin(){
+  const val = document.getElementById('pass-input').value;
+  if(val === VELMOUR_CONFIG.adminPassphrase){
+    document.getElementById('login-gate').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+    renderAdminTable();
+  } else {
+    document.getElementById('login-error').style.display = 'block';
+  }
+}
+document.getElementById('pass-input').addEventListener('keydown', e => { if(e.key === 'Enter') tryLogin(); });
+
+function filterEvent(ev){ currentFilter = ev; renderAdminTable(); }
+
+function renderAdminTable(){
+  const body = document.getElementById('reg-table-body');
+  let list = getRegistrations();
+  if(currentFilter !== 'all') list = list.filter(r => r.event === currentFilter);
+  document.getElementById('empty-state').style.display = list.length ? 'none' : 'block';
+
+  body.innerHTML = list.map(r => `
+    <tr>
+      <td>${r.full_name || '—'}</td>
+      <td>${r.event}</td>
+      <td>${r.role || '—'}</td>
+      <td>${r.age || '—'}</td>
+      <td>${r.school || '—'}</td>
+      <td>${r.phone || '—'}</td>
+      <td>${r.email || '—'}</td>
+      <td>${r.committee_pref || '—'}</td>
+      <td>${r.qualification || '—'}</td>
+      <td>${r.heard_about || '—'}</td>
+      <td><span class="pill ${r.paid ? 'paid' : 'unpaid'}">${r.paid ? 'Paid' : 'Unpaid'}</span></td>
+      <td>${r.paid ? '' : `<button class="btn btn-sm" onclick="markAsPaid('${r.id}')">Mark Paid</button>`}</td>
+    </tr>
+  `).join('');
+}
+</script>
+</body>
+</html>

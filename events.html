@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Events — Velmour Global Foundation</title>
+<link rel="icon" href="assets/images/logo.jpg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <img src="assets/images/logo.jpg" alt="Velmour Global Foundation">
+      <span class="brand-text"><b>Velmour</b><span>Global Foundation</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="events.html" class="active">Events</a>
+      <a href="dimun.html" class="dimun-link">DIMUN</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a href="#" class="btn btn-sm btn-accent nav-cta join-cta" data-open-modal="join-modal">Join Us</a>
+      <a href="#koshur-register" class="btn btn-sm btn-light nav-cta">Register</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<section class="hero" style="min-height:52vh;">
+  <img src="assets/images/gallery/dimun-orientation-hall.jpg" class="hero-photo" alt="">
+  <div class="hero-scrim"></div>
+  <img src="assets/images/logo.jpg" class="hero-watermark" alt="">
+  <div class="container hero-content">
+    <span class="eyebrow" style="color:#C9A24B;">What's On</span>
+    <h1 style="font-size:clamp(38px,6vw,68px);">Events &amp; <em>Initiatives</em></h1>
+    <p>Everything Velmour Global Foundation and DIMUN have on the calendar — from summits to conferences.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div id="events-list-full" style="display:flex;flex-direction:column;gap:22px;"></div>
+  </div>
+</section>
+
+<!-- ===== KOSHUR SUMMIT DETAIL ===== -->
+<section class="section section-alt" id="koshur-summit">
+  <!-- ===== KOSHUR SUMMIT DETAIL ===== -->
+<section class="section section-alt" id="koshur-summit">
+  <div class="container">
+    <div class="reveal" style="background:var(--ivory);border:1px solid var(--brass);padding:50px 44px;display:grid;grid-template-columns:1fr 1fr;gap:64px;">
+      <div>
+        <span class="eyebrow">Velmour Global Foundation Presents</span>
+        <div style="display:flex;align-items:center;gap:18px;margin:16px 0 20px;">
+          <div class="event-logo-badge" style="width:64px;height:64px;flex-shrink:0;">
+            <img src="assets/images/koshur-summit-logo.jpg" alt="The Koshur Summit">
+          </div>
+          <h2 style="font-size:42px;margin:0;">Koshur Summit</h2>
+        </div>
+        <p class="lede">The Koshur Summit is a flagship gathering under Velmour Global Foundation, bringing together young people for leadership, dialogue and cultural engagement rooted in Jammu &amp; Kashmir. Full programme details, dates and venue will be announced here as they are confirmed.</p>
+        <div style="display:flex;gap:16px;margin-top:36px;flex-wrap:wrap;">
+          <a href="#koshur-register" class="btn btn-solid" data-open-modal="koshur-modal">Register Now</a>
+          <a href="https://www.instagram.com/thekoshursummit/" target="_blank" rel="noopener" class="btn on-light social-btn">Follow on Instagram</a>
+          <a href="contact.html" class="btn">Ask a Question</a>
+        </div>
+        <img src="assets/images/gallery/velmour-youth-outdoor.jpg" alt="Velmour Global Foundation youth in Kashmir" style="width:100%;height:200px;object-fit:cover;margin-top:32px;">
+      </div>
+      <div style="border-left:1px solid var(--line-soft);padding-left:44px;display:flex;flex-direction:column;">
+        <div class="countdown" id="koshur-countdown-detail" style="justify-content:center;margin-bottom:32px;">
+          <div class="unit"><span class="num cd-d" style="color:var(--brass);">--</span><span class="lbl" style="color:#6a6e78;">Days</span></div>
+          <div class="unit"><span class="num cd-h" style="color:var(--brass);">--</span><span class="lbl" style="color:#6a6e78;">Hours</span></div>
+          <div class="unit"><span class="num cd-m" style="color:var(--brass);">--</span><span class="lbl" style="color:#6a6e78;">Min</span></div>
+          <div class="unit"><span class="num cd-s" style="color:var(--brass);">--</span><span class="lbl" style="color:#6a6e78;">Sec</span></div>
+        </div>
+        <span class="num" style="font-family:'Playfair Display',serif;font-style:italic;color:var(--brass);font-size:15px;">Registration Tracks</span>
+        <h3 style="margin-top:14px;font-size:22px;">Three Ways to Take Part</h3>
+        <p style="color:#4a4e58;font-size:15px;margin:0 0 18px;">Choose the track that fits you, and complete your registration in a few minutes.</p>
+        <ul style="display:flex;flex-direction:column;gap:10px;">
+          <li style="border-bottom:1px solid var(--line-soft);padding-bottom:10px;"><b>Delegate</b> — represent a country or entity in committee.</li>
+          <li style="border-bottom:1px solid var(--line-soft);padding-bottom:10px;"><b>Intern</b> — join the organising team behind the scenes.</li>
+          <li><b>Chairperson</b> — lead a committee on the executive board.</li>
+        </ul>
+        <a href="koshur-join.html" class="btn btn-sm" style="margin-top:auto;align-self:flex-start;padding-top:24px;">Apply as Intern / Campus Ambassador →</a>
+      </div>
+    </div>
+  </div>
+  <style>@media (max-width:900px){#koshur-summit .reveal>div[style*="grid-template-columns"]{display:block !important;} #koshur-summit .reveal>div[style*="grid-template-columns"]>div:last-child{border-left:0 !important;padding-left:0 !important;margin-top:40px;}}</style>
+</section>
+
+<!-- ===== KOSHUR REGISTER TRIGGER SECTION ===== -->
+<section class="section text-center" id="koshur-register">
+  <div class="container reveal">
+    <span class="eyebrow">Registration</span>
+    <h2 style="font-size:34px;margin:16px 0 30px;">Register for Koshur Summit</h2>
+    <p class="lede" style="margin:0 auto 36px;">Select your track below to begin. You'll receive a confirmation PDF immediately, followed by a payment step to secure your seat.</p>
+    <a href="#" class="btn btn-solid" style="background:#2FBEA0;border-color:#2FBEA0;" data-open-modal="koshur-modal">Choose Your Track →</a>
+  </div>
+</section>
+
+<!-- ===================== KOSHUR MODAL ===================== -->
+<div class="modal-overlay" id="koshur-modal">
+  <div class="modal">
+    <button class="modal-close" data-close-modal>&times;</button>
+
+    <!-- Step 0: role select -->
+    <div id="koshur-step-role">
+      <span class="eyebrow">Koshur Summit Registration</span>
+      <h2 style="font-size:28px;margin:14px 0 6px;">How would you like to take part?</h2>
+      <p style="color:#5a5e68;">Pick a track — each has its own short form.</p>
+      <div class="role-select">
+        <div class="role-card" onclick="showKoshurForm('delegate')"><b>Delegate</b><span>Represent a country in committee</span></div>
+        <div class="role-card" onclick="showKoshurForm('intern')"><b>Intern</b><span>Join the organising team</span></div>
+        <div class="role-card" onclick="showKoshurForm('chairperson')"><b>Chairperson</b><span>Lead a committee</span></div>
+      </div>
+    </div>
+
+    <!-- Delegate form -->
+    <form id="koshur-form-delegate" class="koshur-form" style="display:none;">
+      <button type="button" class="btn btn-sm" onclick="backToRoles('koshur')" style="margin-bottom:24px;">← Back</button>
+      <span class="eyebrow">Delegate Registration</span>
+      <h2 style="font-size:24px;margin:14px 0 26px;">Koshur Summit — Delegate</h2>
+      <div class="field"><label>Full Name <span class="req">*</span></label><input type="text" name="full_name" required></div>
+      <div class="form-row">
+        <div class="field"><label>Age <span class="req">*</span></label><input type="number" name="age" min="10" max="99" required></div>
+        <div class="field"><label>School / Institution <span class="req">*</span></label><input type="text" name="school" required></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label>Phone Number <span class="req">*</span></label><input type="tel" name="phone" required></div>
+        <div class="field"><label>Secondary Phone <span style="color:#9a9ea8;">(optional)</span></label><input type="tel" name="phone_secondary"></div>
+      </div>
+      <div class="field"><label>Email <span class="req">*</span></label><input type="email" name="email" required></div>
+      <div class="field">
+        <label>Committee Preference <span class="req">*</span></label>
+        <div class="radio-group">
+          <label class="radio-card"><input type="radio" name="committee_pref" value="International Press" required><span>International Press</span></label>
+          <label class="radio-card"><input type="radio" name="committee_pref" value="UNGA — Main Committee"><span>UNGA — Main Committee</span></label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-solid" style="width:100%;justify-content:center;margin-top:10px;">Save &amp; Continue to Payment</button>
+    </form>
+
+    <!-- Intern form -->
+    <form id="koshur-form-intern" class="koshur-form" style="display:none;">
+      <button type="button" class="btn btn-sm" onclick="backToRoles('koshur')" style="margin-bottom:24px;">← Back</button>
+      <span class="eyebrow">Intern Registration</span>
+      <h2 style="font-size:24px;margin:14px 0 26px;">Koshur Summit — Intern</h2>
+      <div class="field"><label>Full Name <span class="req">*</span></label><input type="text" name="full_name" required></div>
+      <div class="form-row">
+        <div class="field"><label>Age <span class="req">*</span></label><input type="number" name="age" min="10" max="99" required></div>
+        <div class="field"><label>School / Institution <span class="req">*</span></label><input type="text" name="school" required></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label>Phone Number <span class="req">*</span></label><input type="tel" name="phone" required></div>
+        <div class="field"><label>Secondary Phone <span style="color:#9a9ea8;">(optional)</span></label><input type="tel" name="phone_secondary"></div>
+      </div>
+      <div class="field"><label>Email <span class="req">*</span></label><input type="email" name="email" required></div>
+      <div class="field"><label>Preferred Team <span class="req">*</span></label>
+        <select name="committee_pref" required>
+          <option value="">Select a team</option>
+          <option>Organising &amp; Logistics</option>
+          <option>Delegate Affairs</option>
+          <option>Media &amp; Content</option>
+          <option>Design</option>
+          <option>Outreach</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-solid" style="width:100%;justify-content:center;margin-top:10px;">Save &amp; Continue to Payment</button>
+    </form>
+
+    <!-- Chairperson form -->
+    <form id="koshur-form-chairperson" class="koshur-form" style="display:none;">
+      <button type="button" class="btn btn-sm" onclick="backToRoles('koshur')" style="margin-bottom:24px;">← Back</button>
+      <span class="eyebrow">Chairperson Registration</span>
+      <h2 style="font-size:24px;margin:14px 0 26px;">Koshur Summit — Chairperson</h2>
+      <div class="field"><label>Full Name <span class="req">*</span></label><input type="text" name="full_name" required></div>
+      <div class="form-row">
+        <div class="field"><label>Age <span class="req">*</span></label><input type="number" name="age" min="10" max="99" required></div>
+        <div class="field"><label>School / Institution <span class="req">*</span></label><input type="text" name="school" required></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label>Phone Number <span class="req">*</span></label><input type="tel" name="phone" required></div>
+        <div class="field"><label>Secondary Phone <span style="color:#9a9ea8;">(optional)</span></label><input type="tel" name="phone_secondary"></div>
+      </div>
+      <div class="field"><label>Email <span class="req">*</span></label><input type="email" name="email" required></div>
+      <div class="field"><label>Prior MUN / Chairing Experience <span class="req">*</span></label>
+        <select name="committee_pref" required>
+          <option value="">Select experience level</option>
+          <option>First-time chairing</option>
+          <option>Chaired 1–2 conferences</option>
+          <option>Chaired 3+ conferences</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-solid" style="width:100%;justify-content:center;margin-top:10px;">Save &amp; Continue to Payment</button>
+    </form>
+
+    <!-- Payment step -->
+    <div id="koshur-step-payment" style="display:none;text-align:center;">
+      <span class="eyebrow">Almost There</span>
+      <h2 style="font-size:26px;margin:14px 0 10px;">Complete Your Payment</h2>
+      <p style="color:#5a5e68;max-width:48ch;margin:0 auto 30px;">Your registration is saved and your confirmation PDF has downloaded. Secure your seat by completing payment below.</p>
+      <div class="card" style="max-width:360px;margin:0 auto;">
+        <p style="margin-bottom:20px;">Registration Fee</p>
+        <h3 style="font-size:30px;margin-bottom:24px;">To be announced</h3>
+        <button class="btn btn-solid" style="width:100%;justify-content:center;" id="koshur-pay-btn">Pay Now</button>
+      </div>
+      <p style="font-size:12.5px;color:#9a9ea8;margin-top:20px;">Payment gateway to be connected — see setup note in registration.js</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== JOIN US MODAL ===================== -->
+<div class="modal-overlay" id="join-modal">
+  <div class="modal">
+    <button class="modal-close" data-close-modal>&times;</button>
+
+    <!-- Step 0: choose organisation -->
+    <div id="join-step-org">
+      <span class="eyebrow">Get Involved</span>
+      <h2 style="font-size:28px;margin:14px 0 6px;">Join Us</h2>
+      <p style="color:#5a5e68;">Choose where you'd like to contribute — each has its own opportunities and its own short form.</p>
+      <div class="role-select">
+        <div class="role-card" onclick="showJoinOrg('velmour')"><b>Velmour Global</b><span>Intern or Volunteer with the Foundation</span></div>
+        <div class="role-card" onclick="window.location.href='koshur-join.html'"><b>Koshur Summit</b><span>Intern or Campus Ambassador</span></div>
+        <div class="role-card" onclick="window.location.href='dimun-join.html'"><b>DIMUN</b><span>Campus Ambassador Programme</span></div>
+      </div>
+    </div>
+
+    <!-- Step 1 (Velmour Global only): Intern or Volunteer -->
+    <div id="join-step-velmour-role" style="display:none;">
+      <button type="button" class="btn btn-sm" onclick="backToJoinOrg()" style="margin-bottom:24px;">← Back</button>
+      <span class="eyebrow">Velmour Global Foundation</span>
+      <h2 style="font-size:26px;margin:14px 0 10px;">Join as an Intern or Volunteer</h2>
+      <div class="role-note">
+        <p><b>Intern —</b> Interns form the core working body of Velmour Global Foundation. It is a hands-on role that involves daily, dedicated work across our ongoing projects and initiatives. Open to candidates who have passed Grade 10 (10th) or above.</p>
+        <p><b>Volunteer —</b> Volunteers are individuals who share our vision and ideology and extend their support to the Foundation on an occasional basis. Volunteers are called upon as and when required, particularly for events, drives and outreach activities.</p>
+      </div>
+      <div class="role-select" style="grid-template-columns:repeat(2,1fr);margin-top:26px;">
+        <div class="role-card" onclick="showJoinForm('velmour-intern')"><b>Intern</b><span>Daily, dedicated work · Min. Grade 10 pass</span></div>
+        <div class="role-card" onclick="showJoinForm('velmour-volunteer')"><b>Volunteer</b><span>Occasional, as-needed support</span></div>
+      </div>
+    </div>
+
+    <!-- Velmour Intern form -->
+    <form id="join-form-velmour-intern" class="join-form" style="display:none;">
+      <button type="button" class="btn btn-sm" onclick="backToJoinRole()" style="margin-bottom:24px;">← Back</button>
+      <span class="eyebrow">Velmour Global Foundation</span>
+      <h2 style="font-size:24px;margin:14px 0 10px;">Intern Application</h2>
+      <span class="role-eligibility">Minimum eligibility: Grade 10 (10th) pass-out</span>
+      <div class="field"><label>Full Name <span class="req">*</span></label><input type="text" name="full_name" required></div>
+      <div class="form-row">
+        <div class="field"><label>Contact Number <span class="req">*</span></label><input type="tel" name="phone" required></div>
+        <div class="field"><label>Alternate Contact Number <span style="color:#9a9ea8;">(optional)</span></label><input type="tel" name="phone_secondary"></div>
+      </div>
+      <div class="field"><label>Email <span class="req">*</span></label><input type="email" name="email" required></div>
+      <div class="field"><label>Academic Qualification <span class="req">*</span></label>
+        <select name="qualification" required>
+          <option value="">Select your qualification</option>
+          <option>10th Pass</option>
+          <option>12th Pass</option>
+          <option>Undergraduate (Pursuing)</option>
+          <option>Graduate</option>
+          <option>Postgraduate (Pursuing)</option>
+          <option>Postgraduate</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field"><label>Relevant Experience <span class="req">*</span></label><textarea name="experience" rows="3" required placeholder="Briefly describe any relevant experience, skills or past involvement."></textarea></div>
+      <div class="field"><label>Why Should We Choose You? <span class="req">*</span></label><textarea name="why_choose" rows="3" required placeholder="Tell us what makes you a good fit for this role."></textarea></div>
+      <div class="field"><label>Where Did You Hear About Us? <span class="req">*</span></label>
+        <select name="heard_about" required>
+          <option value="">Select an option</option>
+          <option>Instagram</option>
+          <option>Friend / Referral</option>
+          <option>School / College</option>
+          <option>Website</option>
+          <option>Event</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-solid" style="width:100%;justify-content:center;margin-top:10px;">Submit Application</button>
+    </form>
+
+    <!-- Velmour Volunteer form -->
+    <form id="join-form-velmour-volunteer" class="join-form" style="display:none;">
+      <button type="button" class="btn btn-sm" onclick="backToJoinRole()" style="margin-bottom:24px;">← Back</button>
+      <span class="eyebrow">Velmour Global Foundation</span>
+      <h2 style="font-size:24px;margin:14px 0 26px;">Volunteer Application</h2>
+      <div class="field"><label>Full Name <span class="req">*</span></label><input type="text" name="full_name" required></div>
+      <div class="form-row">
+        <div class="field"><label>Contact Number <span class="req">*</span></label><input type="tel" name="phone" required></div>
+        <div class="field"><label>Alternate Contact Number <span style="color:#9a9ea8;">(optional)</span></label><input type="tel" name="phone_secondary"></div>
+      </div>
+      <div class="field"><label>Email <span class="req">*</span></label><input type="email" name="email" required></div>
+      <div class="field"><label>Academic Qualification <span class="req">*</span></label>
+        <select name="qualification" required>
+          <option value="">Select your qualification</option>
+          <option>10th Pass</option>
+          <option>12th Pass</option>
+          <option>Undergraduate (Pursuing)</option>
+          <option>Graduate</option>
+          <option>Postgraduate (Pursuing)</option>
+          <option>Postgraduate</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field"><label>Relevant Experience <span class="req">*</span></label><textarea name="experience" rows="3" required placeholder="Briefly describe any relevant experience, skills or past involvement."></textarea></div>
+      <div class="field"><label>Why Should We Choose You? <span class="req">*</span></label><textarea name="why_choose" rows="3" required placeholder="Tell us what makes you a good fit for this role."></textarea></div>
+      <div class="field"><label>Where Did You Hear About Us? <span class="req">*</span></label>
+        <select name="heard_about" required>
+          <option value="">Select an option</option>
+          <option>Instagram</option>
+          <option>Friend / Referral</option>
+          <option>School / College</option>
+          <option>Website</option>
+          <option>Event</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-solid" style="width:100%;justify-content:center;margin-top:10px;">Submit Application</button>
+    </form>
+
+    <!-- Thank-you step -->
+    <div id="join-step-done" style="display:none;text-align:center;">
+      <span class="eyebrow">Thank You</span>
+      <h2 style="font-size:26px;margin:14px 0 10px;">Application Received</h2>
+      <p style="color:#5a5e68;max-width:48ch;margin:0 auto;">Your confirmation PDF has downloaded. Our team will review your application and reach out to you directly.</p>
+      <button type="button" class="btn btn-solid" style="margin-top:26px;" data-close-modal>Close</button>
+    </div>
+  </div>
+</div>
+
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:16px;">
+          <img src="assets/images/logo.jpg" alt="Velmour">
+          <span class="brand-text"><b>Velmour</b><span>Global Foundation</span></span>
+        </div>
+        <p style="font-size:14px;max-width:32ch;">A registered non-profit foundation working for youth empowerment, education, healthcare and humanitarian action.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="about.html">About Us</a>
+        <a href="events.html">Events</a>
+        <a href="dimun.html">DIMUN</a>
+        <a href="gallery.html">Gallery</a>
+      </div>
+      <div>
+        <h4>Registration Details</h4>
+        <li>CIN: U88900JK2026NPL019211</li>
+        <li>DARPAN ID: JK/2026/1116497</li>
+        <li>Registered: Srinagar, J&amp;K · 2026</li>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="mailto:velmourglobalfoundation@gmail.com">velmourglobalfoundation@gmail.com</a>
+        <a href="tel:+919186200527">+91 91862 00527</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Velmour Global Foundation. All rights reserved.</span>
+      <span>Working for Humanity — Empowering Communities</span>
+    </div>
+    <div class="site-credit">
+      <div class="social-row" style="justify-content:center;margin-bottom:14px;">
+        <a href="https://www.instagram.com/velmourglobalfoundation/" target="_blank" rel="noopener" class="social-btn">Velmour · Instagram</a>
+        <a href="https://www.instagram.com/dimunofficial/" target="_blank" rel="noopener" class="social-btn">DIMUN · Instagram</a>
+        <a href="https://www.instagram.com/thekoshursummit/" target="_blank" rel="noopener" class="social-btn">Koshur Summit · Instagram</a>
+      </div>
+      Website crafted by <a href="https://www.instagram.com/albidayahtech/" target="_blank" rel="noopener">Al-Bidayah Tech</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="js/events-data.js"></script>
+<script src="js/registration.js"></script>
+<script src="js/main.js"></script>
+<script>
+renderEventCards(document.getElementById('events-list-full'));
+startCountdown(VELMOUR_EVENTS.find(e => e.id === 'koshur-summit').date, 'koshur-countdown-detail');
+
+let currentKoshurRole = null;
+let currentKoshurData = null;
+
+function showKoshurForm(role){
+  currentKoshurRole = role;
+  document.getElementById('koshur-step-role').style.display = 'none';
+  document.getElementById('koshur-step-payment').style.display = 'none';
+  document.querySelectorAll('.koshur-form').forEach(f => f.style.display = 'none');
+  document.getElementById('koshur-form-' + role).style.display = 'block';
+}
+function backToRoles(prefix){
+  document.getElementById(prefix + '-step-role').style.display = 'block';
+  document.getElementById(prefix + '-step-payment').style.display = 'none';
+  document.querySelectorAll('.' + prefix + '-form').forEach(f => f.style.display = 'none');
+}
+
+['delegate','intern','chairperson'].forEach(role => {
+  document.getElementById('koshur-form-' + role).addEventListener('submit', function(e){
+    e.preventDefault();
+    const result = submitRegistration(this, {
+      event: 'Koshur Summit',
+      role: role.charAt(0).toUpperCase() + role.slice(1),
+      required: ['full_name','age','school','phone','email']
+    });
+    if(result){
+      currentKoshurData = result;
+      setTimeout(() => {
+        document.querySelectorAll('.koshur-form').forEach(f => f.style.display = 'none');
+        document.getElementById('koshur-step-payment').style.display = 'block';
+      }, 1400);
+    }
+  });
+});
+
+document.getElementById('koshur-pay-btn').addEventListener('click', () => {
+  if(currentKoshurData) startPayment(currentKoshurData.id);
+});
+</script>
+</body>
+</html>
