@@ -48,8 +48,6 @@
 
 <!-- ===== KOSHUR SUMMIT DETAIL ===== -->
 <section class="section section-alt" id="koshur-summit">
-  <!-- ===== KOSHUR SUMMIT DETAIL ===== -->
-<section class="section section-alt" id="koshur-summit">
   <div class="container">
     <div class="reveal" style="background:var(--ivory);border:1px solid var(--brass);padding:50px 44px;display:grid;grid-template-columns:1fr 1fr;gap:64px;">
       <div>
@@ -95,7 +93,7 @@
   <div class="container reveal">
     <span class="eyebrow">Registration</span>
     <h2 style="font-size:34px;margin:16px 0 30px;">Register for Koshur Summit</h2>
-    <p class="lede" style="margin:0 auto 36px;">Select your track below to begin. You'll receive a confirmation PDF immediately, followed by a payment step to secure your seat.</p>
+    <p class="lede" style="margin:0 auto 36px;">Select your track below to begin. You'll receive a confirmation PDF immediately, and our team will contact you about payment and next steps.</p>
     <a href="#" class="btn btn-solid" style="background:#2FBEA0;border-color:#2FBEA0;" data-open-modal="koshur-modal">Choose Your Track →</a>
   </div>
 </section>
@@ -139,7 +137,7 @@
           <label class="radio-card"><input type="radio" name="committee_pref" value="UNGA — Main Committee"><span>UNGA — Main Committee</span></label>
         </div>
       </div>
-      <button type="submit" class="btn btn-solid" style="width:100%;justify-content:center;margin-top:10px;">Save &amp; Continue to Payment</button>
+      <button type="submit" class="btn btn-solid" style="width:100%;justify-content:center;margin-top:10px;">Submit Registration</button>
     </form>
 
     <!-- Intern form -->
@@ -167,7 +165,7 @@
           <option>Outreach</option>
         </select>
       </div>
-      <button type="submit" class="btn btn-solid" style="width:100%;justify-content:center;margin-top:10px;">Save &amp; Continue to Payment</button>
+      <button type="submit" class="btn btn-solid" style="width:100%;justify-content:center;margin-top:10px;">Submit Registration</button>
     </form>
 
     <!-- Chairperson form -->
@@ -193,20 +191,20 @@
           <option>Chaired 3+ conferences</option>
         </select>
       </div>
-      <button type="submit" class="btn btn-solid" style="width:100%;justify-content:center;margin-top:10px;">Save &amp; Continue to Payment</button>
+      <button type="submit" class="btn btn-solid" style="width:100%;justify-content:center;margin-top:10px;">Submit Registration</button>
     </form>
 
-    <!-- Payment step -->
-    <div id="koshur-step-payment" style="display:none;text-align:center;">
+    <!-- Thank-you step (no online payment: team contacts registrants, then they pay) -->
+    <div id="koshur-step-done" style="display:none;text-align:center;">
       <span class="eyebrow">Almost There</span>
-      <h2 style="font-size:26px;margin:14px 0 10px;">Complete Your Payment</h2>
-      <p style="color:#5a5e68;max-width:48ch;margin:0 auto 30px;">Your registration is saved and your confirmation PDF has downloaded. Secure your seat by completing payment below.</p>
+      <h2 style="font-size:26px;margin:14px 0 10px;">Registration Received</h2>
+      <p style="color:#5a5e68;max-width:48ch;margin:0 auto 30px;">Your registration is saved and your confirmation PDF has downloaded. Our team will contact you soon. Once we do, complete your payment within <span class="koshur-pay-window">48 hours</span> to be registered.</p>
       <div class="card" style="max-width:360px;margin:0 auto;">
         <p style="margin-bottom:20px;">Registration Fee</p>
-        <h3 style="font-size:30px;margin-bottom:24px;">To be announced</h3>
-        <button class="btn btn-solid" style="width:100%;justify-content:center;" id="koshur-pay-btn">Pay Now</button>
+        <h3 class="koshur-fee" style="font-size:30px;margin-bottom:12px;">&#8377;2,000</h3>
+        <p style="font-size:13px;color:#6a6e78;margin:0;">Payable within <span class="koshur-pay-window">48 hours</span> of our contact</p>
       </div>
-      <p style="font-size:12.5px;color:#9a9ea8;margin-top:20px;">Payment gateway to be connected — see setup note in registration.js</p>
+      <button type="button" class="btn btn-solid" style="margin-top:26px;" data-close-modal>Close</button>
     </div>
   </div>
 </div>
@@ -385,19 +383,26 @@
 renderEventCards(document.getElementById('events-list-full'));
 startCountdown(VELMOUR_EVENTS.find(e => e.id === 'koshur-summit').date, 'koshur-countdown-detail');
 
+/* ===== EDIT THESE TWO LINES TO CHANGE THE FEE OR PAYMENT DEADLINE LATER ===== */
+const KOSHUR_FEE = "\u20B92,000";
+const KOSHUR_PAY_WINDOW = "48 hours";
+document.querySelectorAll('.koshur-fee').forEach(el => el.textContent = KOSHUR_FEE);
+document.querySelectorAll('.koshur-pay-window').forEach(el => el.textContent = KOSHUR_PAY_WINDOW);
+
 let currentKoshurRole = null;
 let currentKoshurData = null;
 
 function showKoshurForm(role){
   currentKoshurRole = role;
   document.getElementById('koshur-step-role').style.display = 'none';
-  document.getElementById('koshur-step-payment').style.display = 'none';
+  document.getElementById('koshur-step-done').style.display = 'none';
   document.querySelectorAll('.koshur-form').forEach(f => f.style.display = 'none');
   document.getElementById('koshur-form-' + role).style.display = 'block';
 }
 function backToRoles(prefix){
   document.getElementById(prefix + '-step-role').style.display = 'block';
-  document.getElementById(prefix + '-step-payment').style.display = 'none';
+  const done = document.getElementById(prefix + '-step-done');
+  if(done) done.style.display = 'none';
   document.querySelectorAll('.' + prefix + '-form').forEach(f => f.style.display = 'none');
 }
 
@@ -406,6 +411,8 @@ function backToRoles(prefix){
     e.preventDefault();
     const result = submitRegistration(this, {
       event: 'Koshur Summit',
+      formType: 'koshur_delegate',   // must match DELEGATE.formType in the Apps Script
+      noPayment: true,               // no online payment: team contacts them afterwards
       role: role.charAt(0).toUpperCase() + role.slice(1),
       required: ['full_name','age','school','phone','email']
     });
@@ -413,14 +420,10 @@ function backToRoles(prefix){
       currentKoshurData = result;
       setTimeout(() => {
         document.querySelectorAll('.koshur-form').forEach(f => f.style.display = 'none');
-        document.getElementById('koshur-step-payment').style.display = 'block';
+        document.getElementById('koshur-step-done').style.display = 'block';
       }, 1400);
     }
   });
-});
-
-document.getElementById('koshur-pay-btn').addEventListener('click', () => {
-  if(currentKoshurData) startPayment(currentKoshurData.id);
 });
 </script>
 </body>
