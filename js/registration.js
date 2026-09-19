@@ -45,7 +45,7 @@ const VELMOUR_CONFIG = {
   // SETUP #2 — Google Sheets + email via Apps Script. See /docs/google-sheets-setup.md
   gsheets: {
     enabled: true,               // set true once deployed
-    webAppUrl: "https://script.google.com/macros/s/AKfycbxDjhQB9F8irB31ekci2zt8DK8CoUkrzcsqjOtVcwx4nlxPEdkvyR1W6STF6H43xA/exec"
+    webAppUrl: "https://script.google.com/macros/s/AKfycbx8V_bn2KWXFFioe_OTC1v7hmwh-o_tlXlVEN5JExR8BiU0PXlGmTR5ZVgmga7o5lGW/exec"
   },
   adminEmail: "velmourglobalfoundation@gmail.com",
   adminPassphrase: "velmour2026"   // change this — client-side only, see admin.html note
@@ -67,7 +67,7 @@ function genId(){
 
 /* ---------- Core submit handler, used by all registration forms ---------- */
 function submitRegistration(form, formConfig){
-  const data = { id: genId(), submittedAt: new Date().toISOString(), event: formConfig.event, paid: false };
+  const data = { id: genId(), submittedAt: new Date().toISOString(), event: formConfig.event, role: formConfig.role || '', paid: false };
   const fd = new FormData(form);
   for(const [k,v] of fd.entries()) data[k] = v;
 
